@@ -16,9 +16,9 @@ const pretendard = localFont({
 
 const baseOptions: BaseLayoutProps = {
   nav: {
-    title: "@chaesunbak/ui",
+    title: "@chaesunbak/registry",
   },
-  githubUrl: `https://github.com/chaesunbak/ui`,
+  githubUrl: `https://github.com/chaesunbak/registry`,
 };
 
 export default function Layout({ children }: LayoutProps<"/">) {
