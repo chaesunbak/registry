@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "@chaesunbak/registry",
+  "homepage": "https://registry.chaesunbak.com",
+  "items": [
+    {
+      "name": "responsive-dialog",
+      "type": "registry:component",
+      "dependencies": [],
+      "registryDependencies": ["dialog", "drawer", "button", "use-mobile"],
+      "files": [
+        {
+          "path": "src/components/registry/components/responsive-dialog.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}
