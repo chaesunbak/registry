@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { source } from "@/lib/source";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 import "./global.css";
 
@@ -29,13 +30,15 @@ export default function Layout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ko" className={pretendard.variable} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
-        <RootProvider>
-          <DocsLayout tree={tree} {...baseOptions}>
-            {children}
-          </DocsLayout>
-          <Analytics />
-          <SpeedInsights />
-        </RootProvider>
+        <TooltipProvider>
+          <RootProvider>
+            <DocsLayout tree={tree} {...baseOptions}>
+              {children}
+            </DocsLayout>
+          </RootProvider>
+        </TooltipProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
