@@ -1,0 +1,55 @@
+---
+title: useFetch
+description: 선언적인 방식으로 데이터를 패치할 수 있는 리액트 훅입니다. 로딩 상태, 에러 처리, 요청 취소 등을 편리하게 관리할 수 있습니다.
+---
+
+## 사용법
+
+```tsx
+import { useFetch } from "@/hooks/use-fetch";
+
+function App() {
+  const { data, error, isError, isLoading, refetch } = useFetch<User>({
+    input: "https://api.example.com/data",
+    options: {
+      onSuccess: (data) => console.log("데이터 패치 성공!", data),
+      onError: (err) => console.error("에러 발생!", err),
+    }
+  });
+
+  if (isLoading) return <div>로딩 중...</div>;
+  if (isError) return <div>에러: {error.message}</div>;
+
+  return (
+    <div>
+      <pre>{data.name}</pre>
+      <button onClick={refetch}>다시 불러오기</button>
+    </div>
+  );
+}
+```
+
+## 설치
+
+**pnpm**
+
+```bash
+pnpm dlx shadcn@latest add @chaesunbak/use-fetch
+```
+
+**npm**
+
+```bash
+npx shadcn@latest add @chaesunbak/use-fetch
+```
+
+## 인터페이스
+
+### UseFetchParameters
+
+
+<AutoTypeTable path="./registry/default/hooks/useFetch.ts" name="UseFetchParameters" />
+
+### UseFetchReturn
+
+<AutoTypeTable path="./registry/default/hooks/useFetch.ts" name="UseFetchReturn" />
