@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ResponsiveDialog } from "registry/components/responsive-dialog";
+import { ResponsiveDialog } from "@/registry/default/components/responsive-dialog";
 
 export function ResponsiveDialogExample() {
   const [open, setOpen] = useState(false);
