@@ -2,6 +2,31 @@
 title: useFetch
 description: 선언적인 방식으로 데이터를 패치할 수 있는 리액트 훅입니다. 로딩 상태, 에러 처리, 요청 취소 등을 편리하게 관리할 수 있습니다.
 ---
+## 설치
+
+<Tabs items={["Command", "Manual"]}>
+  <Tab value="Command">
+    **pnpm**
+
+```bash
+pnpm dlx shadcn@latest add @chaesunbak/use-fetch
+```
+
+**npm**
+
+```bash
+npx shadcn@latest add @chaesunbak/use-fetch
+```
+  </Tab>
+  <Tab value="Manual">
+   <div className="fd-steps">
+    <div className="fd-step" >
+      <p>다음 코드를 프로젝트에 복사/붙혀넣기 하세요.</p>
+        <ComponentSource name="use-fetch" />
+    </div>
+   </div>
+  </Tab>
+</Tabs>
 
 ## 사용법
 
@@ -29,24 +54,9 @@ function App() {
 }
 ```
 
-## 설치
-
-**pnpm**
-
-```bash
-pnpm dlx shadcn@latest add @chaesunbak/use-fetch
-```
-
-**npm**
-
-```bash
-npx shadcn@latest add @chaesunbak/use-fetch
-```
-
 ## 인터페이스
 
 ### UseFetchParameters
-
 
 <AutoTypeTable path="./registry/default/hooks/useFetch.ts" name="UseFetchParameters" />
 
