@@ -2,6 +2,8 @@ import { RootProvider } from "fumadocs-ui/provider/next";
 import localFont from "next/font/local";
 import { DocsLayout } from "fumadocs-ui/layouts/docs";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { source } from "@/lib/source";
 
@@ -31,6 +33,8 @@ export default function Layout({ children }: LayoutProps<"/">) {
           <DocsLayout tree={tree} {...baseOptions}>
             {children}
           </DocsLayout>
+          <Analytics />
+          <SpeedInsights />
         </RootProvider>
       </body>
     </html>
