@@ -10,7 +10,7 @@
       "registryDependencies": ["dialog", "drawer", "button", "use-mobile"],
       "files": [
         {
-          "path": "src/components/registry/components/responsive-dialog.tsx",
+          "path": "registry/components/responsive-dialog.tsx",
           "type": "registry:component"
         }
       ]
