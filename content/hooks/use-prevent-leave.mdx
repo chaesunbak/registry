@@ -3,6 +3,53 @@ title: usePreventLeave
 description: 웹 페이지에서 사용자에게 실제로 페이지를 떠날 것인지 묻는 확인 대화 상자를 표시합니다.
 ---
 
+import { UsePreventLeaveExample } from "@/examples/hooks/use-prevent-leave";
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab value="Preview">
+    <div className="flex items-center justify-center min-h-[200px] border rounded-lg p-6 bg-background">
+      <UsePreventLeaveExample />
+    </div>
+  </Tab>
+  <Tab value="Code">
+```tsx
+"use client";
+
+import { useState } from "react";
+
+import { Input } from "@/components/ui/input";
+import { usePreventLeave } from "@/registry/default/hooks/usePreventLeave";
+
+export function UsePreventLeaveExample() {
+  const [title, setTitle] = useState("");
+
+  const isDirty = title.length > 0;
+
+  usePreventLeave(isDirty);
+
+  return (
+    <div className="space-y-4">
+      <p className="text-sm text-muted-foreground">
+        입력 중인 내용이 있을 때 탭을 닫거나 새로고침하면 브라우저의 이탈 경고가
+        뜹니다.
+      </p>
+      <div className="space-y-2">
+        <Input
+          className="w-full rounded-md border px-3 py-2 text-sm"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="제목을 입력하세요"
+        />
+      </div>
+    </div>
+  );
+}
+
+```
+
+  </Tab>
+</Tabs>
+
 ## 설치
 
 <Tabs items={["Command", "Manual"]}>
