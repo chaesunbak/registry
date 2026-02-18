@@ -25,6 +25,18 @@
           "type": "registry:hook"
         }
       ]
+    },
+    {
+      "name": "use-prevent-leave",
+      "type": "registry:hook",
+      "dependencies": [],
+      "registryDependencies": ["usehooks-ts"],
+      "files": [
+        {
+          "path": "registry/default/hooks/usePreventLeave.ts",
+          "type": "registry:hook"
+        }
+      ]
     }
   ]
 }

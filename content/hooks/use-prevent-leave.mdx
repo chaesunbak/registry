@@ -1,0 +1,69 @@
+---
+title: usePreventLeave
+description: 웹 페이지에서 사용자에게 실제로 페이지를 떠날 것인지 묻는 확인 대화 상자를 표시합니다.
+---
+
+## 설치
+
+<Tabs items={["Command", "Manual"]}>
+  <Tab value="Command">
+    **pnpm**
+
+```bash
+pnpm dlx shadcn@latest add @chaesunbak/use-prevent-leave
+```
+
+**npm**
+
+```bash
+npx shadcn@latest add @chaesunbak/use-prevent-leave
+```
+  </Tab>
+  <Tab value="Manual">
+   <div className="fd-steps">
+    <div className="fd-step" >
+      <p>다음 코드를 프로젝트에 복사/붙혀넣기 하세요.</p>
+        <ComponentSource name="use-prevent-leave" />
+    </div>
+   </div>
+  </Tab>
+</Tabs>
+
+## 사용법
+
+```tsx
+import { useState } from "react";
+import { usePreventLeave } from "@/hooks/use-prevent-leave";
+
+function PostEditor() {
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+
+  const isDirty = title.length > 0 || content.length > 0;
+
+  usePreventLeave(isDirty);
+
+  return (
+    <form>
+      <input
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        placeholder="제목을 입력하세요"
+      />
+      <textarea
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
+        placeholder="내용을 입력하세요"
+      />
+    </form>
+  );
+}
+```
+
+## 인터페이스
+
+### usePreventLeave
+
+| 속성      | 타입      | 기본값 | 설명                                                          |
+| --------- | --------- | ------ | ------------------------------------------------------------- |
+| `isDirty` | `boolean` | -      | 이 값이 `true`일 때 페이지 이탈(새로고침/닫기 등)을 방지합니다. |
