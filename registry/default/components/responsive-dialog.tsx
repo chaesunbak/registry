@@ -46,7 +46,7 @@ export function ResponsiveDialog({
           <div className="px-4">{children}</div>
           <DrawerFooter className="pt-2">
             <DrawerClose asChild>
-              <Button variant="outline">Cancel</Button>
+              <Button variant="outline">닫기</Button>
             </DrawerClose>
           </DrawerFooter>
         </DrawerContent>
