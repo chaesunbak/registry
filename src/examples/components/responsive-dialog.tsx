@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ResponsiveDialog } from "@/registry/default/components/responsive-dialog";
 
@@ -9,16 +10,18 @@ export function ResponsiveDialogExample() {
 
   return (
     <>
-      <Button onClick={() => setOpen(true)}>Open Dialog</Button>
+      <Button onClick={() => setOpen(true)}>프로필 수정하기</Button>
       <ResponsiveDialog
         isOpen={open}
         setIsOpen={setOpen}
-        title="Edit profile"
-        description="Make changes to your profile here. Click save when you're done."
+        title="프로필 수정하기"
+        description="프로필 정보를 수정하고 저장하세요."
       >
-        <p className="text-sm text-muted-foreground">
-          Dialog content goes here.
-        </p>
+        <div className="flex flex-col gap-4">
+          <Input placeholder="이름" />
+          <Input placeholder="이메일" />
+          <Button>저장</Button>
+        </div>
       </ResponsiveDialog>
     </>
   );
