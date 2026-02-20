@@ -3,7 +3,7 @@ title: useDialog
 description: Alert와 Confirm 형태의 다이얼로그를 쉽게 표시할 수 있습니다.
 ---
 
-import { UseDialogExample } from "@/examples/hooks/use-dialog";
+import { UseDialogExample} from "@/examples/hooks/use-dialog";
 
 <Tabs items={["Preview", "Code"]}>
   <Tab value="Preview">
@@ -12,45 +12,10 @@ import { UseDialogExample } from "@/examples/hooks/use-dialog";
     </div>
   </Tab>
   <Tab value="Code">
-```tsx
-"use client";
-
-import { useDialog } from "@/hooks/use-dialog";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-
-export function UseDialogExample() {
-  const { confirm, alert } = useDialog();
-
-  const delay = async (ms: number) => {
-    await new Promise((resolve) => setTimeout(resolve, ms));
-  };
-
-  const handleAsyncConfirm = async () => {
-    await confirm(
-      "작업을 진행할까요?",
-      "이 작업은 되돌릴 수 없습니다.",
-      <Input placeholder="계정 삭제 사유를 입력해주세요." />,
-      {
-        isDestructive: true,
-        onConfirm: async () => {
-          await delay(1000); // 1초 대기 (로딩 상태 자동 반영)
-        },
-      },
-    );
-  };
-
-  return (
-    <div className="flex flex-col gap-4 sm:flex-row">
-      <Button onClick={handleAsyncConfirm} variant="default">
-        계정 삭제하기
-      </Button>
-    </div>
-  );
-}
-```
+    <ComponentSource src="src/examples/hooks/use-dialog.tsx" title="examples/use-dialog.tsx" />
   </Tab>
 </Tabs>
+
 
 ## 설치
 
@@ -91,7 +56,7 @@ npx shadcn@latest add @chaesunbak/use-dialog
 
 ## 사용법
 
-`DialogProvider`를 추가해주세요
+루트 레이아웃에 `DialogProvider`를 추가해주세요
 
 ```tsx
 import { DialogProvider } from "@/providers/dialog-provider";
@@ -107,6 +72,53 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   );
 }
 ```
+
+import { UseDialogAlertExample } from "@/examples/hooks/use-dialog-alert";
+import { UseDialogConfirmExample } from "@/examples/hooks/use-dialog-confirm";
+import { UseDialogAsyncExample } from "@/examples/hooks/use-dialog-async";
+
+
+### Alert 다이얼로그 표시하기
+`alert` 메서드를 사용하여 기본적인 다이얼로그를 표시할 수 있어요. `closeOnDimmerClick` 속성을 `false`로 설정하면 배경 클릭으로 다이얼로그가 닫히는 것을 방지할 수 있어요.
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab value="Preview">
+    <div className="flex items-center justify-center min-h-[200px] border rounded-lg p-6 bg-background">
+      <UseDialogAlertExample />
+    </div>
+  </Tab>
+  <Tab value="Code">
+    <ComponentSource src="src/examples/hooks/use-dialog-alert.tsx" />
+  </Tab>
+</Tabs>
+
+### Confirm 다이얼로그 표시하기
+`confirm` 메서드는 사용자의 결정을 요구하는 상황에서 유용해요. `isDestructive` 속성을 `true`로 설정하면 위험한 액션을 나타낼 수 있어요.
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab value="Preview">
+    <div className="flex items-center justify-center min-h-[200px] border rounded-lg p-6 bg-background">
+      <UseDialogConfirmExample />
+    </div>
+  </Tab>
+  <Tab value="Code">
+    <ComponentSource src="src/examples/hooks/use-dialog-confirm.tsx" />
+  </Tab>
+</Tabs>
+
+### 비동기 작업 처리하기
+`confirm` 메서드의 `onConfirm` 속성에 비동기 함수(Promise를 반환하는 함수)를 전달하면, 버튼을 클릭했을 때 작업이 완료될 때까지 자동으로 로딩 상태가 처리돼요.
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab value="Preview">
+    <div className="flex items-center justify-center min-h-[200px] border rounded-lg p-6 bg-background">
+      <UseDialogAsyncExample />
+    </div>
+  </Tab>
+  <Tab value="Code">
+    <ComponentSource src="src/examples/hooks/use-dialog-async.tsx" />
+  </Tab>
+</Tabs>
 
 ## 인터페이스
 
