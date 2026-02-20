@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { RootProvider } from "fumadocs-ui/provider/next";
 import localFont from "next/font/local";
 import { DocsLayout } from "fumadocs-ui/layouts/docs";
@@ -9,6 +10,13 @@ import { source } from "@/lib/source";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 import "./global.css";
+
+export const metadata: Metadata = {
+  title: {
+    template: "%s - @chaesunbak/registry",
+    default: "@chaesunbak/registry",
+  },
+};
 
 const pretendard = localFont({
   src: "../assets/fonts/pretendard/PretendardVariable.woff2",
