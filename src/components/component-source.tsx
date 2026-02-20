@@ -2,7 +2,13 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
 
-export async function ComponentSource({ src }: { src: string }) {
+export async function ComponentSource({
+  src,
+  title,
+}: {
+  src: string;
+  title?: string;
+}) {
   let sourceContent = "";
 
   try {
@@ -20,6 +26,7 @@ export async function ComponentSource({ src }: { src: string }) {
     <DynamicCodeBlock
       lang="tsx"
       code={sourceContent}
+      codeblock={title ? { title } : undefined}
       options={{
         themes: {
           light: "github-light",
