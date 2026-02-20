@@ -2,11 +2,11 @@ import { useEventListener } from "usehooks-ts";
 
 /**
  * 페이지 이탈 방지 훅
- * @param isDirty - 변경 사항이 있어 차단할지 여부
+ * @param prevent - 페이지 이탈 방지 여부
  */
-export function usePreventLeave(isDirty: boolean) {
+export function usePreventLeave(prevent: boolean = true) {
   useEventListener("beforeunload", (event) => {
-    if (isDirty) {
+    if (prevent) {
       event.preventDefault();
     }
   });
