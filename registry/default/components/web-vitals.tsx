@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { useReportWebVitals } from "next/web-vitals";
 import { sendGAEvent } from "@next/third-parties/google";
 
-export function WebVitalsCollector() {
+export function WebVitals() {
   const pathname = usePathname();
 
   useReportWebVitals((metric) => {
