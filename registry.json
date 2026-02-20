@@ -61,6 +61,24 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "use-dialog",
+      "type": "registry:hook",
+      "dependencies": ["zustand"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/hooks/useDialog.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-dialog.ts"
+        },
+        {
+          "path": "registry/default/providers/dialog-provider.tsx",
+          "type": "registry:component",
+          "target": "components/providers/dialog-provider.tsx"
+        }
+      ]
     }
   ]
 }
