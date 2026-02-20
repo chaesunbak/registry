@@ -12,28 +12,7 @@ import { CopyToClipboardButtonExample } from "@/examples/components/copy-to-clip
     </div>
   </Tab>
   <Tab value="Code">
-```tsx
-"use client";
-
-import { CopyToClipboardButton } from "@/registry/default/components/copy-to-clipboard-button";
-import { Input } from "@/components/ui/input";
-
-export function CopyToClipboardButtonExample() {
-  const text = "console.log('Hello, World!')";
-
-  return (
-    <div className="flex flex-col items-center gap-4">
-      <div className="flex items-center gap-4">
-        <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
-          {text}
-        </code>
-        <CopyToClipboardButton text={text} />
-      </div>
-      <Input />
-    </div>
-  );
-}
-```
+    <ComponentSource src="src/examples/components/copy-to-clipboard-button.tsx" />
   </Tab>
 </Tabs>
 
@@ -57,7 +36,7 @@ npx shadcn@latest add @chaesunbak/copy-to-clipboard-button
    <div className="fd-steps">
     <div className="fd-step" >
       <p>다음 코드를 프로젝트에 복사/붙여넣기 하세요.</p>
-        <ComponentSource name="copy-to-clipboard-button" />
+        <ComponentSource src="registry/default/components/copy-to-clipboard-button.tsx" />
     </div>
    </div>
   </Tab>

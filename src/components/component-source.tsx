@@ -1,22 +1,25 @@
+import fs from "node:fs/promises";
+import path from "node:path";
 import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
 
-import { getComponentSource } from "@/lib/registry";
+export async function ComponentSource({ src }: { src: string }) {
+  let sourceContent = "";
 
-export async function ComponentSource({ name }: { name: string }) {
-  const source = await getComponentSource(name);
-
-  if (!source) {
+  try {
+    const filePath = path.join(process.cwd(), src);
+    sourceContent = await fs.readFile(filePath, "utf-8");
+  } catch (error) {
     return (
       <div className="rounded-lg border bg-muted p-4 text-sm text-muted-foreground">
-        Source code not found for "{name}"
+        Source code not found at "{src}"
       </div>
     );
   }
 
   return (
     <DynamicCodeBlock
-      lang="ts"
-      code={source.content}
+      lang="tsx"
+      code={sourceContent}
       options={{
         themes: {
           light: "github-light",
