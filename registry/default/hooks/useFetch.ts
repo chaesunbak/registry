@@ -1,4 +1,10 @@
-import { useState, useEffect, useCallback } from "react";
+import {
+  useState,
+  useEffect,
+  useCallback,
+  useEffectEvent,
+  useRef,
+} from "react";
 
 export function useFetch<T>({
   input,
@@ -25,39 +31,54 @@ export function useFetch<T>({
 
   const { onSuccess, onError, enabled = true } = options ?? {};
 
-  const fetchData = useCallback(
-    async (signal?: AbortSignal) => {
-      setIsLoading(true);
-      setError(null);
+  // 콜백 함수들은 useEffectEvent(useEventCallback)를 사용하여 최신 상태 참조 및 무한 렌더링 방지
+  // react 19 이전 버전 사용시 useRef 사용하여 메모이제이션 권장
+  const onFetchSuccess = useEffectEvent((result: T) => onSuccess?.(result));
+  const onFetchError = useEffectEvent((err: Error) => onError?.(err));
 
-      try {
-        const response = await fetch(input, {
-          ...init,
-          signal,
-        });
+  const abortControllerRef = useRef<AbortController | null>(null);
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+  const inputStr = typeof input === "string" ? input : input.toString();
 
-        const result = await response.json();
-        setData(result);
-        onSuccess?.(result);
-      } catch (err) {
-        if (err instanceof Error && err.name === "AbortError") {
-          return;
-        }
+  const initStr = JSON.stringify(init);
 
-        const errorObj =
-          err instanceof Error ? err : new Error("An unknown error occurred");
-        setError(errorObj);
-        onError?.(errorObj);
-      } finally {
+  const fetchData = useCallback(async () => {
+    abortControllerRef.current?.abort();
+
+    const controller = new AbortController();
+    abortControllerRef.current = controller;
+
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch(inputStr, {
+        ...init,
+        signal: controller.signal,
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      setData(result);
+      onFetchSuccess(result);
+    } catch (err) {
+      if (err instanceof Error && err.name === "AbortError") {
+        return;
+      }
+
+      const errorObj =
+        err instanceof Error ? err : new Error("An unknown error occurred");
+      setError(errorObj);
+      onFetchError(errorObj);
+    } finally {
+      if (abortControllerRef.current === controller) {
         setIsLoading(false);
       }
-    },
-    [input, init, onSuccess, onError],
-  );
+    }
+  }, [inputStr, initStr]);
 
   const refetch = useCallback(() => {
     fetchData();
@@ -66,11 +87,10 @@ export function useFetch<T>({
   useEffect(() => {
     if (!enabled) return;
 
-    const controller = new AbortController();
-    fetchData(controller.signal);
+    fetchData();
 
     return () => {
-      controller.abort();
+      abortControllerRef.current?.abort();
     };
   }, [fetchData, enabled]);
 
