@@ -58,8 +58,20 @@ function App() {
 
 ### UseFetchParameters
 
-<AutoTypeTable path="./registry/default/hooks/useFetch.ts" name="UseFetchParameters" />
+| 속성 | 타입 | 기본값 | 설명 |
+| :--- | :--- | :--- | :--- |
+| `input` | `RequestInfo \| URL` | - | 패치할 대상 URL 또는 RequestInfo 객체입니다. |
+| `init` | `RequestInit` | `undefined` | fetch API의 옵션 (headers, method, body 등)입니다. |
+| `options.enabled` | `boolean` | `true` | 패치 실행 여부입니다. `false`일 경우 수동으로 `refetch`를 호출해야 합니다. |
+| `options.onSuccess` | `(data: T) => void` | `undefined` | 데이터 패치 성공 시 호출되는 콜백입니다. |
+| `options.onError` | `(error: Error) => void` | `undefined` | 데이터 패치 실패 시 호출되는 콜백입니다. |
 
 ### UseFetchReturn
 
-<AutoTypeTable path="./registry/default/hooks/useFetch.ts" name="UseFetchReturn" />
+| 속성 | 타입 | 설명 |
+| :--- | :--- | :--- |
+| `data` | `T \| null` | 패치된 데이터입니다. |
+| `error` | `Error \| null` | 발생한 에러 객체입니다. |
+| `isError` | `boolean` | 에러 발생 여부입니다. |
+| `isLoading` | `boolean` | 로딩 상태 여부입니다. |
+| `refetch` | `() => void` | 데이터를 다시 패치하는 함수입니다. |

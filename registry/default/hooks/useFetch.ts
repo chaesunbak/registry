@@ -76,7 +76,3 @@ export function useFetch<T>({
 
   return { data, error, isError: !!error, isLoading, refetch };
 }
-
-export type UseFetchParameters<T> = Parameters<typeof useFetch<T>>[0];
-
-export type UseFetchReturn<T> = ReturnType<typeof useFetch<T>>;

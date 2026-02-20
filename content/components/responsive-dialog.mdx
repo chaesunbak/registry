@@ -91,10 +91,10 @@ import { ResponsiveDialog } from "@/components/responsive-dialog";
 
 ### ResponsiveDialog
 
-| 속성          | 타입                                | 기본값      |
-| ------------- | ----------------------------------- | ----------- |
-| `isOpen`      | `boolean`                           | -           |
-| `setIsOpen`   | `Dispatch<SetStateAction<boolean>>` | -           |
-| `title`       | `string`                            | -           |
-| `description` | `string`                            | `undefined` |
-| `children`    | `ReactNode`                         | -           |
+| 속성          | 타입                                | 기본값      | 설명                                                          |
+| ------------- | ----------------------------------- | ----------- | ------------------------------------------------------------- |
+| `isOpen`      | `boolean`                           | -           | 대화상자의 열림 상태입니다.                                   |
+| `setIsOpen`   | `Dispatch<SetStateAction<boolean>>` | -           | 대화상자의 열림 상태를 변경하는 함수입니다.                   |
+| `title`       | `string`                            | -           | 대화상자의 제목입니다.                                        |
+| `description` | `string`                            | `undefined` | 대화상자의 설명입니다.                                        |
+| `children`    | `ReactNode`                         | -           | 대화상자 내부에 렌더링할 요소입니다. |
