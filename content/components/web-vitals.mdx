@@ -1,0 +1,46 @@
+---
+title: Web Vitals
+description: 모바일에서는 Drawer로, 데스크톱에서는 Dialog로 자동 전환되는 반응형 대화상자 컴포넌트입니다.
+---
+
+
+## 설치
+
+<Tabs items={["Command", "Manual"]}>
+  <Tab value="Command">
+    **pnpm**
+
+```bash
+pnpm dlx shadcn@latest add @chaesunbak/web-vitals
+```
+
+**npm**
+
+```bash
+npx shadcn@latest add @chaesunbak/web-vitals
+```
+  </Tab>
+  <Tab value="Manual">
+   <div className="fd-steps">
+    <div className="fd-step" >
+      <p>다음 코드를 프로젝트에 복사/붙혀넣기 하세요.</p>
+        <ComponentSource name="web-vitals" />
+    </div>
+   </div>
+  </Tab>
+</Tabs>
+
+## 사용법
+
+```tsx
+import { GoogleAnalytics } from '@next/third-parties/google'
+import { WebVitals } from "@/components/web-vitals";
+```
+
+```tsx
+<>
+  <GoogleAnalytics gaId="G-XXXXXXXXXX" />
+  <WebVitals />
+</>
+```
+

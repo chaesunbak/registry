@@ -37,6 +37,18 @@
           "type": "registry:hook"
         }
       ]
+    },
+    {
+      "name": "web-vitals",
+      "type": "registry:component",
+      "dependencies": ["@next/third-parties"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/web-vitals.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }
