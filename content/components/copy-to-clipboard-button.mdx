@@ -1,0 +1,82 @@
+---
+title: Copy To Clipboard Button
+description: 텍스트를 클립보드에 복사할 수 있는 버튼 컴포넌트입니다.
+---
+
+import { CopyToClipboardButtonExample } from "@/examples/components/copy-to-clipboard-button";
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab value="Preview">
+    <div className="flex items-center justify-center min-h-[200px] border rounded-lg p-6 bg-background">
+      <CopyToClipboardButtonExample />
+    </div>
+  </Tab>
+  <Tab value="Code">
+```tsx
+"use client";
+
+import { CopyToClipboardButton } from "@/registry/default/components/copy-to-clipboard-button";
+
+export function CopyToClipboardButtonExample() {
+  return (
+    <div className="flex flex-col items-center gap-4">
+      <p className="text-sm text-muted-foreground">
+        클릭하여 아래 텍스트를 복사하세요:
+      </p>
+      <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
+        npm install @chaesunbak/ui
+      </code>
+      <CopyToClipboardButton text="npm install @chaesunbak/ui" />
+    </div>
+  );
+}
+```
+  </Tab>
+</Tabs>
+
+## 설치
+
+<Tabs items={["Command", "Manual"]}>
+  <Tab value="Command">
+    **pnpm**
+
+```bash
+pnpm dlx shadcn@latest add @chaesunbak/copy-to-clipboard-button
+```
+
+**npm**
+
+```bash
+npx shadcn@latest add @chaesunbak/copy-to-clipboard-button
+```
+  </Tab>
+  <Tab value="Manual">
+   <div className="fd-steps">
+    <div className="fd-step" >
+      <p>다음 코드를 프로젝트에 복사/붙여넣기 하세요.</p>
+        <ComponentSource name="copy-to-clipboard-button" />
+    </div>
+   </div>
+  </Tab>
+</Tabs>
+
+## 사용법
+
+```tsx
+import { CopyToClipboardButton } from "@/components/copy-to-clipboard-button";
+```
+
+```tsx
+<CopyToClipboardButton text="복사할 텍스트" />
+```
+
+## 인터페이스
+
+### CopyToClipboardButton
+
+| 속성        | 타입         | 기본값      | 설명                       |
+| ----------- | ------------ | ----------- | -------------------------- |
+| `text`      | `string`     | -           | 복사할 텍스트입니다.       |
+| `className` | `string`     | `undefined` | 추가적인 스타일 클래스입니다. |
+| `onSuccess` | `() => void` | `undefined` | 복사 성공 시 호출됩니다.   |
+| `onError`   | `() => void` | `undefined` | 복사 실패 시 호출됩니다.   |
