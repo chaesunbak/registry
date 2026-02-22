@@ -74,9 +74,9 @@
           "target": "hooks/use-dialog.ts"
         },
         {
-          "path": "registry/default/providers/dialog-provider.tsx",
+          "path": "registry/default/components/global-dialog.tsx",
           "type": "registry:component",
-          "target": "components/providers/dialog-provider.tsx"
+          "target": "components/global-dialog.tsx"
         }
       ]
     }

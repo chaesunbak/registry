@@ -15,7 +15,7 @@ import { useDialogStore } from "@/hooks/use-dialog";
 
 type PointerDownOutsideEvent = CustomEvent<{ originalEvent: PointerEvent }>;
 
-export const DialogProvider = () => {
+export const GlobalDialog = () => {
   const {
     isOpen,
     isLoading,

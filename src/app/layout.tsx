@@ -8,7 +8,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { source } from "@/lib/source";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { DialogProvider } from "@/registry/default/providers/dialog-provider";
+import { GlobalDialog } from "@/registry/default/components/global-dialog";
 
 import "./global.css";
 
@@ -40,7 +40,7 @@ export default function Layout({ children }: LayoutProps<"/">) {
     <html lang="ko" className={pretendard.variable} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
         <TooltipProvider>
-          <DialogProvider />
+          <GlobalDialog />
           <RootProvider>
             <DocsLayout tree={tree} {...baseOptions}>
               {children}

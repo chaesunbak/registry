@@ -41,10 +41,10 @@ npx shadcn@latest add @chaesunbak/use-dialog
     </div>
     <div className="fd-step" >
       <p>다음 코드를 프로젝트에 복사/붙혀넣기 하세요.</p>
-      <ComponentSource src="registry/default/providers/dialog-provider.tsx" title="providers/dialog-provider.tsx" />
+      <ComponentSource src="registry/default/components/global-dialog.tsx" title="components/global-dialog.tsx" />
     </div>
     <div className="fd-step" >
-      <p>루트 레이아웃에 DialogProvider를 추가해주세요.</p>   
+      <p>루트 레이아웃에 GlobalDialog를 추가해주세요.</p>   
     </div>
     <div className="fd-step" >
       <p>관련 의존성을 설치해주세요</p>
@@ -56,17 +56,18 @@ npx shadcn@latest add @chaesunbak/use-dialog
 
 ## 사용법
 
-루트 레이아웃에 `DialogProvider`를 추가해주세요
+루트 레이아웃에 `GlobalDialog`를 추가해주세요
 
 ```tsx
-import { DialogProvider } from "@/providers/dialog-provider";
+import { GlobalDialog } from "@/components/global-dialog";
 ```
 ```tsx
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ko">
       <body>
-        <DialogProvider>{children}</DialogProvider>
+        <GlobalDialog />
+        {children}
       </body>
     </html>
   );
