@@ -35,6 +35,8 @@ npx shadcn@latest add @chaesunbak/web-vitals
 
 ## 사용법
 
+SPA 환경에서는 `<Link/>`를 통한 페이지 이동을 감지할 수 없기 때문에, 페이지별 지표수집이 어렵습니다. MPA 환경에서 사용을 권장합니다.
+
 ```tsx
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { WebVitals } from "@/components/web-vitals";
