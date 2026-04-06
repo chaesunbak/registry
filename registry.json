@@ -16,17 +16,6 @@
       ]
     },
     {
-      "name": "use-fetch",
-      "type": "registry:hook",
-      "dependencies": [],
-      "files": [
-        {
-          "path": "registry/default/hooks/useFetch.ts",
-          "type": "registry:hook"
-        }
-      ]
-    },
-    {
       "name": "use-prevent-leave",
       "type": "registry:hook",
       "dependencies": ["usehooks-ts"],
