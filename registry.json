@@ -68,6 +68,18 @@
           "target": "components/global-dialog.tsx"
         }
       ]
+    },
+    {
+      "name": "responsive",
+      "type": "registry:component",
+      "dependencies": [],
+      "registryDependencies": ["use-mobile"],
+      "files": [
+        {
+          "path": "registry/default/components/responsive.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }
