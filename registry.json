@@ -92,6 +92,18 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "use-is-mounted",
+      "type": "registry:hook",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/hooks/useIsMounted.ts",
+          "type": "registry:hook"
+        }
+      ]
     }
   ]
 }
