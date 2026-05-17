@@ -1,0 +1,64 @@
+---
+title: Rolling Number
+description: 숫자가 변경될 때 부드러운 롤링 애니메이션 효과를 보여주는 컴포넌트입니다.
+---
+
+import { RollingNumberExample } from "@/examples/components/rolling-number";
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab value="Preview">
+    <div className="flex items-center justify-center min-h-[200px] border rounded-lg p-6 bg-background">
+      <RollingNumberExample />
+    </div>
+  </Tab>
+  <Tab value="Code">
+    <ComponentSource src="src/examples/components/rolling-number.tsx" title="examples/rolling-number.tsx" />
+  </Tab>
+</Tabs>
+
+## 설치
+
+<Tabs items={["Command", "Manual"]}>
+  <Tab value="Command">
+    **pnpm**
+
+```bash
+pnpm dlx shadcn@latest add @chaesunbak/rolling-number
+```
+
+**npm**
+
+```bash
+npx shadcn@latest add @chaesunbak/rolling-number
+```
+  </Tab>
+  <Tab value="Manual">
+   <div className="fd-steps">
+    <div className="fd-step" >
+      <p>다음 코드를 프로젝트에 복사/붙여넣기 하세요.</p>
+      <ComponentSource src="registry/default/components/rolling-number.tsx" title="components/rolling-number.tsx" />
+    </div>
+    <div className="fd-step" >
+      <p>추가적인 의존성 설치가 필요하지 않습니다.</p>
+    </div>
+  </div>
+  </Tab>
+</Tabs>
+
+## 사용법
+
+```tsx
+import { RollingNumber } from "@/components/rolling-number";
+```
+
+```tsx
+<RollingNumber number={12345} />
+```
+
+## 인터페이스
+
+### RollingNumber
+
+| 속성     | 타입     | 기본값 | 설명                 |
+| -------- | -------- | ------ | -------------------- |
+| `number` | `number` | -      | 표시할 숫자입니다. |

@@ -80,6 +80,18 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "rolling-number",
+      "type": "registry:component",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/rolling-number.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }
